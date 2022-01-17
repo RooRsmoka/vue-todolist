@@ -9,13 +9,21 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
-    
     <div id="app">
-        <ul>
-            <li v-for="(action, i) in todoList" :class="[action.done === !true ? 'todo' : 'done']">
-                {{action.text}}
-            </li>
-        </ul>
+        <div class="list-container">
+            <!-- Creo una lista che stampa tutti gli oggetti presenti in todoList
+                e sbarro le azioni che sono in stato done: true  
+            -->
+            <ul>
+                <li v-for="(action, i) in todoList" :class="[action.done === !true ? 'todo' : 'done']">
+                    {{action.text}}
+                    <!-- Aggiungo a fianco di ogni azione una X in modo che al click
+                        di essa l'azione relativa venga rimossa dalla lista 
+                    -->
+                    <div @click="removeAction(i)">X</div>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>

@@ -16,4 +16,9 @@ new Vue({
             },
         ]
     },
+    methods: {
+        removeAction: function(index) {
+            this.todoList.splice(index, 1)
+        }
+    }
 })
